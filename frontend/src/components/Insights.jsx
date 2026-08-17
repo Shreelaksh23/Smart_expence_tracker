@@ -13,7 +13,7 @@ const Insights = ({ data, onUpdate }) => {
 
   return (
     <div className="grid md:grid-cols-3 gap-4 mb-8">
-      {/* 💰 Total Spent */}
+      {/*  Total Spent */}
       <div className="bg-white text-black p-5 rounded-lg">
         <p className="text-sm text-gray-500">Total Spent (This Month)</p>
         <h3 className="text-2xl font-semibold mt-1">
@@ -21,13 +21,13 @@ const Insights = ({ data, onUpdate }) => {
         </h3>
       </div>
 
-      {/* 💼 Monthly Budget (Editable) */}
+      {/*  Monthly Budget (Editable) */}
       <BudgetSetter
         currentBudget={budget}
         onUpdate={onUpdate}
       />
 
-      {/* ⚠️ Status */}
+      {/* Status */}
       <div className="bg-white text-black p-5 rounded-lg">
         <p className="text-sm text-gray-500">Status</p>
 
@@ -58,7 +58,7 @@ const Insights = ({ data, onUpdate }) => {
         )}
       </div>
 
-      {/* 📊 Category Breakdown */}
+      {/* Category Breakdown */}
       <div className="md:col-span-3 bg-white text-black p-5 rounded-lg">
         <h4 className="font-semibold mb-3">
           Category Breakdown

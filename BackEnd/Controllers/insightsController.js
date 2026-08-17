@@ -20,26 +20,26 @@ exports.getMonthlyInsights = async (req, res) => {
       59
     );
 
-    // 1️⃣ Get all expenses for current month
+    //get all expenses for current month
     const expenses = await Expense.find({
       user: userId,
       date: { $gte: startOfMonth, $lte: endOfMonth },
     });
 
-    // 2️⃣ Total spent
+    //total spent
     const totalSpent = expenses.reduce(
       (sum, exp) => sum + exp.amount,
       0
     );
 
-    // 3️⃣ Category-wise summary
+    //category-wise summary
     const categorySummary = {};
     expenses.forEach((exp) => {
       categorySummary[exp.category] =
         (categorySummary[exp.category] || 0) + exp.amount;
     });
 
-    // 4️⃣ DAILY TOTALS (🔥 NEW PART)
+    // DAILY TOTALS 
     const dailyMap = {};
 
     expenses.forEach((exp) => {
@@ -54,7 +54,7 @@ exports.getMonthlyInsights = async (req, res) => {
         amount: dailyMap[day],
       }));
 
-    // 5️⃣ Budget logic
+    //budget logic
     const user = await User.findById(userId);
     const budget = user.monthlyBudget || 0;
 
@@ -71,11 +71,11 @@ exports.getMonthlyInsights = async (req, res) => {
       }
     }
 
-    // 6️⃣ Final response
+    // final response
     res.json({
       totalSpent,
       categorySummary,
-      dailyTotals, // 🔥 USED BY CHARTS
+      dailyTotals, //USED BY CHARTS
       budget,
       budgetUsedPercent,
       warning,

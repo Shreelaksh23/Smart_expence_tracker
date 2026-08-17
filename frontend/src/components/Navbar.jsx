@@ -1,8 +1,14 @@
+import { useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
-  if (!user) return null;
+  const location = useLocation();
+
+  // Don't show navbar on Login and Register pages
+  if (!user || location.pathname === "/" || location.pathname === "/login") {
+    return null;
+  }
 
   return (
     <div className="border-b border-gray-800">

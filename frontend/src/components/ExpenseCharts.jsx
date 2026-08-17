@@ -27,7 +27,7 @@ const ExpenseCharts = ({ insights }) => {
 
   return (
     <div className="grid md:grid-cols-2 gap-6 mb-10">
-      {/* 🥧 Category Pie Chart */}
+      {/*  Category Pie Chart */}
       <div className="bg-white text-black p-5 rounded-lg">
         <h3 className="font-semibold mb-4">
           Category-wise Spending
@@ -59,7 +59,7 @@ const ExpenseCharts = ({ insights }) => {
         )}
       </div>
 
-      {/* 📈 Monthly Trend Bar Chart */}
+      {/* Monthly Trend Bar Chart */}
       <div className="bg-white text-black p-5 rounded-lg">
         <h3 className="font-semibold mb-4">
           Daily Spending Trend

@@ -30,14 +30,14 @@ const ExpenseForm = ({ onAdd, editingExpense, onCancelEdit }) => {
     }
 
     if (editingExpense) {
-      // ✏️ UPDATE
+      //  UPDATE
       await updateExpense(editingExpense._id, {
         ...form,
         amount: Number(form.amount),
       });
       onCancelEdit();
     } else {
-      // ➕ ADD
+      //  ADD
       await addExpense({
         ...form,
         amount: Number(form.amount),

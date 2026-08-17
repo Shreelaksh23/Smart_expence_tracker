@@ -9,7 +9,7 @@ connectDB();
 const app=express();
 
 //middleware
-app.use(cors());
+app.use(cors());//it will allowes front and backend to run 
 app.use(express.json());
 
 //routes
@@ -23,8 +23,8 @@ app.get("/",(req,res)=>{
     res.send("expense tracker API is running")
 });
 
-const PORT=process.env.PORT || 5000;
+const PORT=process.env.PORT || 5000;//accessing from env filr
 app.listen(PORT, ()=>{
     console.log(`server is runing on port ${PORT}`);
-    
+
 })
